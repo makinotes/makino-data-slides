@@ -1,13 +1,24 @@
-# Data Slides — Data tells the story
+# makino-data-slides — Data tells the story
 
-Turn Excel / data analysis into investor-grade HTML slide cards with narrative.
+Excel 数据分析 → 投研风 HTML 数据卡片，带观点、带叙事。
+不是画图表，是把数据结论变成可以直接嵌入文章的视觉卡片。
 
-Each slide is a 1080×720 card combining **data visualization** with a **takeaway opinion** — screenshot and embed in articles, or share standalone.
+## Install
 
-Not a chart tool (use `/chart` for that). Not a presentation tool (use `/article-to-slides`).
-This is: **Excel data → analysis conclusions → visual cards with opinions.**
+### Claude Code
 
-## What You Get
+```bash
+cd ~/.claude-internal/skills/
+git clone https://github.com/makinotes/makino-data-slides.git
+```
+
+Then type `/makino-data-slides` in Claude Code.
+
+### OpenClaw
+
+Copy the `makino-data-slides` folder into your agent's skills directory, then invoke `/makino-data-slides`.
+
+## Usage
 
 ```
 /makino-data-slides
@@ -20,6 +31,17 @@ Interactive mode: provide your data file + narrative direction, get slide cards.
 ```
 
 Generate slides from a data file (Excel/CSV/JSON/markdown).
+
+## Features
+
+- Each card 1080x720, fixed 5-layer structure (header → takeaway → chart → footer)
+- Playwright auto-screenshot, ready to embed in articles
+- Investor-report visual language: hero numbers, stat boxes, ECharts charts, insight callouts
+- Not a chart tool (use `/chart` for that) — this is data analysis → opinionated visual cards
+
+## What Problem Does This Solve
+
+You finished a data analysis, conclusions scattered across notebooks, and you want article-grade illustrations. Screenshots are ugly, redoing in Figma is slow. This skill turns Excel data directly into publishable visual cards with narrative and opinions — no design tool needed.
 
 ## When to Use This
 
@@ -40,7 +62,7 @@ Also works with JSON, markdown tables, or verbal description of data + conclusio
 
 Single self-contained HTML file. All CSS and JS inline. Only external dependency: ECharts CDN.
 
-Each slide is screenshot-ready at 1080×720 via Playwright.
+Each slide is screenshot-ready at 1080x720 via Playwright.
 
 ## Example
 
@@ -62,29 +84,6 @@ The 3月 AI 公众号生态月报 slides were built with this skill:
 
 **Typography**: PingFang SC / system font stack, hero numbers 32-40px, body 11-13px
 
-## Install
-
-### Claude Code
-
-```bash
-cd ~/.claude-internal/skills/
-git clone https://github.com/makinotes/makino-data-slides.git
-```
-
-Then type `/makino-data-slides` in Claude Code.
-
-### OpenClaw
-
-Copy the `data-slides` folder into your agent's skills directory, then invoke `/makino-data-slides`.
-
-## Update
-
-```bash
-cd ~/.claude-internal/skills/makino-data-slides && git pull
-```
-
-The skill checks for updates automatically on each run.
-
 ## How It Works
 
 ```
@@ -95,7 +94,15 @@ Your data  -->  Slide outline (user approves)  -->  HTML generation  -->  Playwr
 2. **Outline**: Propose slide count and content per slide
 3. **Generate**: Single HTML with ECharts + CSS cards
 4. **Review**: Open in browser, iterate on spacing/data/readability
-5. **Screenshot**: Playwright captures each slide at 1080×720
+5. **Screenshot**: Playwright captures each slide at 1080x720
+
+## Update
+
+```bash
+cd ~/.claude-internal/skills/makino-data-slides && git pull
+```
+
+The skill checks for updates automatically on each run.
 
 ## FAQ
 
