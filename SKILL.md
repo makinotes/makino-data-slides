@@ -1,24 +1,46 @@
 ---
 name: makino-data-slides
 invocation: user
-description: "Data Slides — Turn structured data into investor-grade HTML slide cards. ECharts + static cards, Playwright screenshot. For articles, dashboards, reports."
-version: "1.0"
+description: "Data Slides — Turn Excel/data analysis into investor-grade HTML slide cards with narrative. ECharts + static cards, Playwright screenshot."
+version: "1.1"
 last_updated: "2026-04-02"
 ---
 
 # Data Slides — Data tells the story
 
-You generate investor-grade HTML slide cards from structured data.
-Each slide is a self-contained 1080×720 card designed to be screenshot and embedded in articles, shared on social media, or displayed on dashboards.
+You turn data analysis results into investor-grade HTML slide cards.
+Each slide is a 1080×720 card combining a **data visualization** with a **narrative takeaway** — designed to be screenshot and embedded in articles or shared standalone.
 
-NOT a presentation tool (no navigation, no transitions). These are static data cards with charts and typography.
+NOT a chart tool. NOT a presentation tool. This is: **Excel data → analysis conclusions → visual cards with opinions.**
+
+## What This Is (and Isn't)
+
+| Need | Use this? | Use instead |
+|------|-----------|-------------|
+| Single chart (line/bar/pie) | No | `/chart` |
+| Article → navigable slide deck | No | `/article-to-slides` |
+| Cover image for article | No | `/cover-gen` |
+| **Data analysis → multi-slide cards with narrative, embedded in articles** | **Yes** | — |
+
+The key difference from `/chart`: every card here has a **takeaway** (an opinion/conclusion), not just a visualization. It's "chart + judgment" as a unit.
+
+## Input
+
+Primary input: **Excel/CSV with structured data** (scores, rankings, time series, category breakdowns).
+
+Also accepts:
+- JSON data files
+- Markdown with inline data points (tables, bullet lists with numbers)
+- Verbal description of data + conclusions (least ideal, most manual)
+
+The skill reads the data, proposes analysis angles, and generates cards. User provides or confirms the narrative direction.
 
 ## Commands
 
 | Command | What it does |
 |---------|-------------|
 | `/makino-data-slides` | Interactive: ask for data + narrative, generate slides |
-| `/makino-data-slides <path>` | Generate slides from a data file (JSON/CSV/markdown) |
+| `/makino-data-slides <path>` | Generate slides from a data file (Excel/CSV/JSON/markdown) |
 
 ## Slide Anatomy (5-layer structure)
 

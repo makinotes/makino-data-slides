@@ -1,10 +1,11 @@
 # Data Slides — Data tells the story
 
-Turn structured data into investor-grade HTML slide cards.
+Turn Excel / data analysis into investor-grade HTML slide cards with narrative.
 
-Each slide is a 1080×720 static card with ECharts charts and typographic hierarchy — designed to be screenshot and embedded in articles, shared on social media, or displayed on dashboards.
+Each slide is a 1080×720 card combining **data visualization** with a **takeaway opinion** — screenshot and embed in articles, or share standalone.
 
-Not a presentation tool. These are data cards that make numbers visual.
+Not a chart tool (use `/chart` for that). Not a presentation tool (use `/article-to-slides`).
+This is: **Excel data → analysis conclusions → visual cards with opinions.**
 
 ## What You Get
 
@@ -12,13 +13,28 @@ Not a presentation tool. These are data cards that make numbers visual.
 /makino-data-slides
 ```
 
-Interactive mode: describe your data and narrative, get slide cards.
+Interactive mode: provide your data file + narrative direction, get slide cards.
 
 ```
-/makino-data-slides path/to/data.json
+/makino-data-slides path/to/data.xlsx
 ```
 
-Generate slides from a structured data file.
+Generate slides from a data file (Excel/CSV/JSON/markdown).
+
+## When to Use This
+
+| Need | Use this? | Use instead |
+|------|-----------|-------------|
+| Single chart (line/bar/pie) | No | `/chart` |
+| Article → navigable slide deck | No | `/article-to-slides` |
+| Cover image for article | No | `/cover-gen` |
+| **Data analysis → multi-slide cards with narrative** | **Yes** | — |
+
+## Input
+
+Primary: **Excel/CSV with structured data** (scores, rankings, time series, category breakdowns).
+
+Also works with JSON, markdown tables, or verbal description of data + conclusions.
 
 ## Output
 
