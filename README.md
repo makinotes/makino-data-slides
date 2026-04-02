@@ -1,7 +1,6 @@
 # makino-data-slides — Data tells the story
 
-Excel 数据分析 → 投研风 HTML 数据卡片，带观点、带叙事。
-不是画图表，是把数据结论变成可以直接嵌入文章的视觉卡片。
+数据分析结论直接生成文章级配图，省掉手动做图做排版，带观点带叙事带图表。
 
 ## Install
 
