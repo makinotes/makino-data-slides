@@ -82,13 +82,23 @@ For now, all users see the investor theme. If you want to define your own color 
 
 **For detailed customization examples**, see [`EXTENSION_GUIDE.md`](../EXTENSION_GUIDE.md) — create custom themes, chart templates, and per-slide overrides.
 
-## Example
+## Demo
 
-The 3月 AI 公众号生态月报 slides were built with this skill:
+A logistics company's pre/post holiday order volume analysis — 4 slides, from Excel to publishable cards in one command.
 
-- 8 slides covering executive summary, distribution analysis, scatter plots, grouped bars, progress indicators, ranked lists, head-to-tail comparisons, and multi-signal dashboards
-- ECharts for scatter/bar/stacked charts, pure HTML/CSS for cards and progress bars
-- Investor-report visual language: hero numbers, stat boxes, color-coded layers, watermark
+### Slide 1 — Overview: Grouped Bar Comparison
+![Overview](demo/slide_1_overview.png)
+
+### Slide 2 — Trend: Area + Line Chart (14-day)
+![Trend](demo/slide_2_trend.png)
+
+### Slide 3 — Structure: Composition Bar + Delta Ranking + Detail Table
+![Structure](demo/slide_3_structure.png)
+
+### Slide 4 — Monthly Summary: Hero Cards + Progress Bars
+![Monthly](demo/slide_4_monthly.png)
+
+> Full interactive HTML: [`demo/demo_slides.html`](demo/demo_slides.html)
 
 ## Design System
 
