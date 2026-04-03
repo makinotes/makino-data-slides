@@ -237,6 +237,22 @@ graphic: [
 
 ## Execution
 
+### Phase 0: Version check
+
+```bash
+curl -s https://raw.githubusercontent.com/makinotes/makino-data-slides/master/SKILL.md | head -6
+```
+
+Extract `version:` from remote, compare with local `5.1`.
+If remote > local, show before proceeding:
+
+```
+[UPDATE] makino-data-slides v{remote} available (you have v5.1).
+Update now? Run: cd ~/.claude/skills/makino-data-slides && git pull
+```
+
+If versions match or curl fails: skip silently.
+
 ### Phase 1: Understand the data
 
 1. Read the data source (JSON/CSV/markdown/user description)
