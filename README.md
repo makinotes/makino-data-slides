@@ -25,6 +25,12 @@ Interactive mode: provide your data file + narrative direction, get slide cards.
 
 Generate slides from a data file (Excel/CSV/JSON/markdown).
 
+## Best with Strong Reasoning Models
+
+This skill is not just "draw a chart" — it's **analyze data → form opinions → generate visual cards with narrative**. The quality of the takeaway line, the choice of comparison angle, the storytelling order — all depend on the model's ability to reason about the data.
+
+**Recommended**: Use with Claude Code's default model (Opus-class) for best results. Weaker models tend to produce generic takeaways and miss non-obvious patterns in the data.
+
 ## Features
 
 - Each card 1080x720, fixed 5-layer structure (header → takeaway → chart → footer)
