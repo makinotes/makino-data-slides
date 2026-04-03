@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>顺达物流春节前后单量对比</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;background:#1a1a2e;padding:40px 0}
+.slide{width:1080px;height:720px;margin:28px auto;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);display:flex;flex-direction:column;position:relative}
+.slide .hdr{display:flex;justify-content:space-between;align-items:flex-start;padding:18px 36px 0;flex-shrink:0}
+.slide .hdr-left h2{font-size:21px;font-weight:800;color:#0f172a;margin-bottom:2px}
+.slide .hdr-left .sub{font-size:12px;color:#64748b;max-width:720px}
+.slide .hdr-right{text-align:right;flex-shrink:0}
+.slide .hdr-right .page{font-size:11px;color:#94a3b8;font-weight:600;letter-spacing:1px}
+.slide .takeaway{margin:6px 36px 0;font-size:13px;font-weight:600;color:#991b1b;padding:8px 14px;background:linear-gradient(90deg,#fef2f2,#fff);border-left:3px solid #dc2626;border-radius:0 6px 6px 0;flex-shrink:0}
+.slide .body{padding:8px 36px 0;overflow:hidden}
+.slide .ft{padding:6px 36px 10px;font-size:11px;color:#64748b;text-align:center;letter-spacing:.3px;flex-shrink:0}
+.stat-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;text-align:center}
+.stat-box .v{font-size:24px;font-weight:800;line-height:1}
+.stat-box .v.blue{color:#1e40af} .stat-box .v.red{color:#dc2626} .stat-box .v.green{color:#059669} .stat-box .v.amber{color:#d97706}
+.stat-box .k{font-size:10px;color:#64748b;margin-top:2px}
+.mini-tbl{font-size:11px;border-collapse:collapse;width:100%}
+.mini-tbl th{background:#1e3a5f;color:#fff;padding:5px 8px;text-align:left;font-weight:600;font-size:10px}
+.mini-tbl td{padding:4px 8px;border-bottom:1px solid #f1f5f9;color:#334155}
+.mini-tbl tr:nth-child(even) td{background:#f8fafc}
+.hcards{display:flex;gap:12px}
+.hc{flex:1;background:linear-gradient(135deg,#1e3a5f,#1e40af);border-radius:10px;padding:16px 12px;text-align:center;color:#fff}
+.hc .n{font-size:32px;font-weight:800;line-height:1}
+.hc .l{font-size:10px;opacity:.8;margin-top:3px}
+.hc .d{font-size:9px;opacity:.5;margin-top:1px}
+.irow{display:flex;gap:10px;margin-top:10px}
+.ic{flex:1;background:#f8fafc;border-radius:8px;padding:10px 8px;text-align:center;border:1px solid #e2e8f0}
+.ic .n{font-size:20px;font-weight:800;line-height:1.1}
+.ic .n.red{color:#dc2626} .ic .n.green{color:#059669} .ic .n.blue{color:#1e40af} .ic .n.amber{color:#d97706}
+.ic .l{font-size:9px;color:#64748b;margin-top:2px}
+.lbar{display:flex;height:24px;border-radius:5px;overflow:hidden;font-size:10px;font-weight:700;color:#fff;margin:8px 0 4px}
+.lbar>div{display:flex;align-items:center;justify-content:center}
+.lleg{display:flex;gap:14px;font-size:9px;color:#64748b}
+.lleg i{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle}
+.slide::before{content:'Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs  Acme Labs';position:absolute;top:0;left:0;right:0;bottom:0;z-index:999;pointer-events:none;font-size:16px;font-weight:600;color:rgba(0,0,0,0.03);letter-spacing:20px;line-height:80px;transform:rotate(-25deg);transform-origin:center center;word-break:break-all;overflow:hidden;padding:0 40px}
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 01 ==================== -->
+<div class="slide">
+  <div class="hdr">
+    <div class="hdr-left">
+      <h2>春节后单量跳升 56%，同城即配翻倍驱动</h2>
+      <div class="sub">春节前 1/25-1/31 vs 春节后 2/24-3/2 各业务线日均单量对比（7天均值）</div>
+    </div>
+    <div class="hdr-right"><div class="page">01 / 04</div></div>
+  </div>
+  <div class="takeaway">同城即配从 152 万单涨到 306 万单（+102%），单项贡献了总增量的 52%；代收货款则从 14 万单断崖降至 2 万单（-84%）</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column;justify-content:space-between;">
+    <div id="chart1" style="flex:1;width:100%;"></div>
+    <div class="irow" style="flex-shrink:0;margin-top:6px;">
+      <div class="ic"><div class="n blue">+56%</div><div class="l">运输+仓配总量</div></div>
+      <div class="ic"><div class="n blue">+102%</div><div class="l">同城即配 (最大增项)</div></div>
+      <div class="ic"><div class="n green">+59%</div><div class="l">快递包裹</div></div>
+      <div class="ic"><div class="n green">+59%</div><div class="l">仓储周转</div></div>
+      <div class="ic"><div class="n red">-84%</div><div class="l">代收货款 (最大降项)</div></div>
+      <div class="ic"><div class="n red">-25%</div><div class="l">大件揽收</div></div>
+    </div>
+  </div>
+  <div class="ft">数据来源：运营中台 + WMS | 口径：含标准件及非标件，不含退货逆向单</div>
+</div>
+
+<!-- ==================== SLIDE 02 ==================== -->
+<div class="slide">
+  <div class="hdr">
+    <div class="hdr-left">
+      <h2>逐日趋势：节后首日即突破 820 万单</h2>
+      <div class="sub">春节前后 14 天运输+仓配总单量走势（日粒度）</div>
+    </div>
+    <div class="hdr-right"><div class="page">02 / 04</div></div>
+  </div>
+  <div class="takeaway">节前 7 天围绕 530 万单窄幅波动；节后首日跳升至 825 万单，峰值 2/27 达 899 万单，周末回落后迅速反弹</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column;justify-content:space-between;">
+    <div id="chart2" style="flex:1;width:100%;"></div>
+  </div>
+  <div class="ft">数据来源：运营中台 + WMS | 春节前 1/25-1/31，春节后 2/24-3/2</div>
+</div>
+
+<!-- ==================== SLIDE 03 ==================== -->
+<div class="slide">
+  <div class="hdr">
+    <div class="hdr-left">
+      <h2>结构变迁：同城即配占比从 28% 升至 37%</h2>
+      <div class="sub">春节前 vs 春节后单量结构对比（日均占比）</div>
+    </div>
+    <div class="hdr-right"><div class="page">03 / 04</div></div>
+  </div>
+  <div class="takeaway">同城即配取代代收货款成为第一增量引擎，节后占比超越快递包裹跃居首位；代收货款从 2.5% 萎缩至 0.3%</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column;justify-content:space-between;">
+    <div style="flex-shrink:0;">
+      <div style="font-size:13px;font-weight:700;color:#334155;text-align:center;margin-bottom:6px;">节前日均 533 万单</div>
+      <div class="lbar" style="height:32px;">
+        <div style="flex:285;background:#1e40af;" title="同城即配 28.5%">同城即配 28.5%</div>
+        <div style="flex:280;background:#3b82f6;" title="快递包裹 28.0%">快递包裹 28.0%</div>
+        <div style="flex:211;background:#059669;" title="仓储周转 21.1%">仓储周转 21.1%</div>
+        <div style="flex:143;background:#7c3aed;font-size:9px;" title="干线运输 14.3%">干线 14.3%</div>
+        <div style="flex:34;background:#93c5fd;color:#1e293b;font-size:8px;" title="冷链配送 3.4%"></div>
+        <div style="flex:25;background:#d97706;font-size:8px;" title="代收货款 2.5%"></div>
+        <div style="flex:22;background:#9ca3af;font-size:8px;" title="大件揽收 2.2%"></div>
+      </div>
+    </div>
+    <div style="flex-shrink:0;margin-top:12px;">
+      <div style="font-size:13px;font-weight:700;color:#334155;text-align:center;margin-bottom:6px;">节后日均 831 万单</div>
+      <div class="lbar" style="height:32px;">
+        <div style="flex:368;background:#1e40af;" title="同城即配 36.8%">同城即配 36.8%</div>
+        <div style="flex:285;background:#3b82f6;" title="快递包裹 28.5%">快递包裹 28.5%</div>
+        <div style="flex:216;background:#059669;" title="仓储周转 21.6%">仓储周转 21.6%</div>
+        <div style="flex:92;background:#7c3aed;font-size:9px;" title="干线运输 9.2%">干线 9.2%</div>
+        <div style="flex:26;background:#93c5fd;color:#1e293b;font-size:8px;" title="冷链配送 2.6%"></div>
+        <div style="flex:3;background:#d97706;font-size:8px;" title="代收货款 0.3%"></div>
+        <div style="flex:10;background:#9ca3af;font-size:8px;" title="大件揽收 1.0%"></div>
+      </div>
+    </div>
+    <div class="lleg" style="flex-shrink:0;margin-top:8px;justify-content:center;">
+      <span><i style="background:#1e40af"></i>同城即配</span>
+      <span><i style="background:#3b82f6"></i>快递包裹</span>
+      <span><i style="background:#059669"></i>仓储周转</span>
+      <span><i style="background:#7c3aed"></i>干线运输</span>
+      <span><i style="background:#93c5fd"></i>冷链配送</span>
+      <span><i style="background:#d97706"></i>代收货款</span>
+      <span><i style="background:#9ca3af"></i>大件揽收</span>
+    </div>
+    <div id="chart3" style="flex:1;width:100%;margin-top:8px;"></div>
+    <table class="mini-tbl" style="flex-shrink:0;margin-top:8px;">
+      <tr><th>业务线</th><th>节前日均</th><th>节后日均</th><th>增幅</th><th>占比变化</th></tr>
+      <tr><td>同城即配</td><td style="text-align:right">152 万</td><td style="text-align:right">306 万</td><td style="text-align:right;color:#059669;font-weight:700">+102%</td><td>28.5% → 36.8%</td></tr>
+      <tr><td>快递包裹</td><td style="text-align:right">149 万</td><td style="text-align:right">237 万</td><td style="text-align:right;color:#059669;font-weight:700">+59%</td><td>28.0% → 28.5%</td></tr>
+      <tr><td>仓储周转</td><td style="text-align:right">112 万</td><td style="text-align:right">179 万</td><td style="text-align:right;color:#059669;font-weight:700">+59%</td><td>21.1% → 21.6%</td></tr>
+      <tr><td>干线运输</td><td style="text-align:right">76 万</td><td style="text-align:right">76 万</td><td style="text-align:right;color:#64748b">-0.1%</td><td>14.3% → 9.2%</td></tr>
+      <tr><td>冷链配送</td><td style="text-align:right">18 万</td><td style="text-align:right">22 万</td><td style="text-align:right;color:#059669;font-weight:700">+20%</td><td>3.4% → 2.6%</td></tr>
+      <tr><td>代收货款</td><td style="text-align:right">14 万</td><td style="text-align:right">2 万</td><td style="text-align:right;color:#dc2626;font-weight:700">-84%</td><td>2.5% → 0.3%</td></tr>
+      <tr><td>大件揽收</td><td style="text-align:right">12 万</td><td style="text-align:right">9 万</td><td style="text-align:right;color:#dc2626;font-weight:700">-25%</td><td>2.2% → 1.0%</td></tr>
+    </table>
+  </div>
+  <div class="ft">数据来源：运营中台 + WMS | 占比 = 各业务线日均 / 运输+仓配日均总量</div>
+</div>
+
+<!-- ==================== SLIDE 04 ==================== -->
+<div class="slide">
+  <div class="hdr">
+    <div class="hdr-left">
+      <h2>2 月结算：日均 833 万单，环比 +16%</h2>
+      <div class="sub">2026 年 2 月顺达物流单量月度结算及 vs 1 月环比</div>
+    </div>
+    <div class="hdr-right"><div class="page">04 / 04</div></div>
+  </div>
+  <div class="takeaway">总量环比仅 +5%（2 月天数少），但日均 +16% 才是真实增速；仓配日均 +23% 领跑所有分项</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column;justify-content:space-between;">
+    <div class="hcards" style="flex-shrink:0;">
+      <div class="hc">
+        <div class="n" style="font-size:40px;">833万</div>
+        <div class="l">运输+仓配 日均</div>
+        <div class="d">2月总量 2.33 亿单</div>
+      </div>
+      <div class="hc">
+        <div class="n" style="font-size:40px;">471万</div>
+        <div class="l">运输 日均</div>
+        <div class="d">2月总量 1.32 亿单</div>
+      </div>
+      <div class="hc" style="background:linear-gradient(135deg,#059669,#047857);">
+        <div class="n" style="font-size:40px;">363万</div>
+        <div class="l">仓配 日均</div>
+        <div class="d">2月总量 1.02 亿单</div>
+      </div>
+    </div>
+    <div style="flex-shrink:0;margin-top:16px;">
+      <div style="font-size:13px;font-weight:700;color:#334155;text-align:center;margin-bottom:8px;">2 月 vs 1 月 环比增幅</div>
+      <div style="display:flex;gap:12px;">
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:#475569;margin-bottom:4px;"><span>运输+仓配 日均</span><span style="font-weight:700;color:#059669;">+16.22%</span></div>
+          <div style="background:#e2e8f0;border-radius:5px;height:10px;overflow:hidden;">
+            <div style="width:66%;background:#1e40af;height:100%;border-radius:5px;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:2px;"><span>总量环比 +4.97%</span><span>天数差异（31 vs 28）</span></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:10px;">
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:#475569;margin-bottom:4px;"><span>运输 日均</span><span style="font-weight:700;color:#059669;">+11.31%</span></div>
+          <div style="background:#e2e8f0;border-radius:5px;height:10px;overflow:hidden;">
+            <div style="width:46%;background:#1e40af;height:100%;border-radius:5px;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:2px;"><span>总量环比 +0.54%</span><span></span></div>
+        </div>
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:#475569;margin-bottom:4px;"><span>仓配 日均</span><span style="font-weight:700;color:#059669;">+23.27%</span></div>
+          <div style="background:#e2e8f0;border-radius:5px;height:10px;overflow:hidden;">
+            <div style="width:95%;background:#059669;height:100%;border-radius:5px;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:2px;"><span>总量环比 +11.34%</span><span></span></div>
+        </div>
+      </div>
+    </div>
+    <table class="mini-tbl" style="flex-shrink:0;margin-top:14px;">
+      <tr><th>业务线</th><th style="text-align:right">2月日均</th><th style="text-align:right">2月总量</th><th style="text-align:right">日均环比</th><th style="text-align:right">总量环比</th></tr>
+      <tr><td>运输+仓配</td><td style="text-align:right;font-weight:700">833 万</td><td style="text-align:right">2.33 亿</td><td style="text-align:right;color:#059669;font-weight:700">+16.22%</td><td style="text-align:right">+4.97%</td></tr>
+      <tr><td>　运输</td><td style="text-align:right">471 万</td><td style="text-align:right">1.32 亿</td><td style="text-align:right;color:#059669;font-weight:700">+11.31%</td><td style="text-align:right">+0.54%</td></tr>
+      <tr><td>　仓配</td><td style="text-align:right">363 万</td><td style="text-align:right">1.02 亿</td><td style="text-align:right;color:#059669;font-weight:700">+23.27%</td><td style="text-align:right">+11.34%</td></tr>
+      <tr><td>　　大件揽收</td><td style="text-align:right">11 万</td><td style="text-align:right">316 万</td><td style="text-align:right;color:#64748b" colspan="2"></td></tr>
+      <tr><td>　　快递包裹</td><td style="text-align:right">204 万</td><td style="text-align:right">5,712 万</td><td style="text-align:right;color:#64748b" colspan="2"></td></tr>
+      <tr><td>　　仓储周转</td><td style="text-align:right">141 万</td><td style="text-align:right">3,951 万</td><td style="text-align:right;color:#64748b" colspan="2"></td></tr>
+      <tr><td>　　代收货款</td><td style="text-align:right">6 万</td><td style="text-align:right">176 万</td><td style="text-align:right;color:#64748b" colspan="2"></td></tr>
+    </table>
+  </div>
+  <div class="ft">数据来源：WMS | 2月 28 天，1月 31 天，日均环比消除天数差异</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script>
+if(typeof echarts==='undefined'){
+  document.querySelectorAll('[id^="chart"]').forEach(function(el){
+    el.innerHTML='<div style="padding:40px;color:#dc2626;font-size:14px;">ECharts load failed. Run: <code>python3 -m http.server 8766</code></div>';
+  });
+}
+</script>
+<script>
+var C={blue:'#1e40af',blueL:'#93c5fd',blueP:'#dbeafe',red:'#dc2626',green:'#059669',purple:'#7c3aed',amber:'#d97706',gray:'#9ca3af',dark:'#1e293b',mid:'#475569',light:'#64748b',grid:'#f1f5f9',axis:'#e2e8f0'};
+
+document.addEventListener('DOMContentLoaded',function(){
+setTimeout(function(){
+
+// === CHART 1: Grouped Bar ===
+var c1=echarts.init(document.getElementById('chart1'));
+c1.setOption({
+  animation:false,
+  grid:{left:80,right:30,top:36,bottom:28},
+  legend:{top:4,textStyle:{fontSize:11}},
+  xAxis:{type:'category',data:['干线运输','冷链配送','同城即配','大件揽收','快递包裹','仓储周转','代收货款'],
+    axisLabel:{fontSize:11,color:C.light},axisLine:{lineStyle:{color:C.axis}}},
+  yAxis:{type:'value',splitLine:{lineStyle:{color:C.grid}},axisLine:{lineStyle:{color:C.axis}},
+    axisLabel:{fontSize:10,color:C.light,formatter:function(v){return (v/10000).toFixed(0)+'万'}}},
+  series:[
+    {name:'节前日均',type:'bar',data:[761529,183027,1515927,114770,1490207,1124563,135532],
+      itemStyle:{color:C.blue,borderRadius:[3,3,0,0]},
+      label:{show:true,position:'top',fontSize:9,color:C.mid,formatter:function(p){return (p.value/10000).toFixed(0)+'万'}}},
+    {name:'节后日均',type:'bar',data:[761050,219555,3057802,85538,2370352,1792492,22107],
+      itemStyle:{color:C.green,borderRadius:[3,3,0,0]},
+      label:{show:true,position:'top',fontSize:9,color:C.mid,formatter:function(p){return (p.value/10000).toFixed(0)+'万'}}}
+  ],
+  barCategoryGap:'25%',barGap:'5%'
+});
+
+// === CHART 2: Area + Line ===
+var c2=echarts.init(document.getElementById('chart2'));
+c2.setOption({
+  animation:false,
+  grid:{left:60,right:30,top:36,bottom:28},
+  legend:{top:4,textStyle:{fontSize:11}},
+  xAxis:{type:'category',data:['01-25','01-26','01-27','01-28','01-29','01-30','01-31','02-24','02-25','02-26','02-27','02-28','03-01','03-02'],
+    axisLabel:{fontSize:10,color:C.light},axisLine:{lineStyle:{color:C.axis}},axisTick:{alignWithLabel:true}},
+  yAxis:{type:'value',min:4000000,max:10000000,
+    splitLine:{lineStyle:{color:C.grid}},axisLine:{lineStyle:{color:C.axis}},
+    axisLabel:{fontSize:10,color:C.light,formatter:function(v){return (v/10000).toFixed(0)+'万'}}},
+  series:[
+    {name:'运输单量',type:'line',stack:'total',
+      data:[2184521,2522635,2527943,2597552,2616590,2574744,2199392,4270513,4187760,4257124,4475015,4142070,3244136,3692230],
+      areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'rgba(30,64,175,0.3)'},{offset:1,color:'rgba(30,64,175,0.05)'}]}},
+      lineStyle:{width:0},itemStyle:{color:C.blue},symbol:'none'},
+    {name:'仓配单量',type:'line',stack:'total',
+      data:[2767950,2862465,2978962,2905957,2836023,2932364,2771780,3974517,4168807,4292746,4511139,4510739,3943360,4492110],
+      areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'rgba(5,150,105,0.3)'},{offset:1,color:'rgba(5,150,105,0.05)'}]}},
+      lineStyle:{width:0},itemStyle:{color:C.green},symbol:'none'},
+    {name:'运输+仓配 总量',type:'line',
+      data:[4952471,5385100,5506905,5503509,5452613,5507108,4971172,8245030,8356567,8549871,8986154,8652809,7187496,8184340],
+      lineStyle:{width:2.5,color:C.dark},itemStyle:{color:C.dark},symbol:'circle',symbolSize:5,
+      label:{show:true,position:'top',fontSize:9,color:C.mid,formatter:function(p){return (p.value/10000).toFixed(0)+'万'}},
+      markLine:{silent:true,symbol:'none',lineStyle:{type:'dashed',width:1.5,color:C.red},data:[{xAxis:'02-24',label:{formatter:'← 节后开始',fontSize:10,color:C.red,fontWeight:600,position:'insideStartTop'}}]}}
+  ]
+});
+
+// === CHART 3: Horizontal Bar for delta ===
+var c3=echarts.init(document.getElementById('chart3'));
+c3.setOption({
+  animation:false,
+  grid:{left:80,right:30,top:10,bottom:10},
+  xAxis:{type:'value',show:false,max:110},
+  yAxis:{type:'category',data:['大件揽收','代收货款','干线运输','冷链配送','仓储周转','快递包裹','同城即配'],
+    axisLine:{show:false},axisTick:{show:false},
+    axisLabel:{fontSize:11,color:C.mid}},
+  series:[{
+    type:'bar',data:[
+      {value:-25,itemStyle:{color:C.red}},
+      {value:-84,itemStyle:{color:C.red}},
+      {value:0,itemStyle:{color:C.gray}},
+      {value:20,itemStyle:{color:C.blueL}},
+      {value:59,itemStyle:{color:C.green}},
+      {value:59,itemStyle:{color:C.green}},
+      {value:102,itemStyle:{color:C.blue}}
+    ],
+    barWidth:14,
+    label:{show:true,position:'right',fontSize:10,fontWeight:700,
+      formatter:function(p){return (p.value>0?'+':'')+p.value+'%'}}
+  }]
+});
+
+},50);
+});
+</script>
+</body>
+</html>
