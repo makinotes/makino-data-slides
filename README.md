@@ -55,6 +55,8 @@ Also works with JSON, markdown tables, or verbal description of data + conclusio
 
 Single self-contained HTML file. All CSS and JS inline. Only external dependency: ECharts CDN.
 
+No PowerPoint, no Keynote, no dependencies. Open in any browser, share as a file, or screenshot individual slides.
+
 Each slide is screenshot-ready at 1080x720 via Playwright.
 
 ## Themes & Customization (Coming in v4.2)
