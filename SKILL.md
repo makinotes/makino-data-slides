@@ -2,8 +2,8 @@
 name: makino-data-slides
 invocation: user
 description: "Data Slides — Turn Excel/data analysis into investor-grade HTML slide cards with narrative. ECharts + static cards, Playwright screenshot."
-version: "1.3"
-last_updated: "2026-04-02"
+version: "4.3"
+last_updated: "2026-04-03"
 ---
 
 # Data Slides — Data tells the story
@@ -247,14 +247,23 @@ graphic: [
 ### Phase 2: Generate HTML
 
 1. Create single HTML file with all slides
-2. Include ECharts CDN: `https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js`
+2. **ECharts 加载策略（双保险）**：
+   - 首选：内联 ECharts。检查本地缓存 `/tmp/echarts.min.js`，存在则读取内容嵌入 `<script>` 标签
+   - 如果本地缓存不存在，先下载：`curl -sL "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" > /tmp/echarts.min.js`
+   - 内联后 HTML 文件 ~1MB，但 file:// 直接打开也能渲染图表
+   - 同时保留 CDN fallback：`<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>`
+   - 加载失败提示：如果 `typeof echarts === 'undefined'`，在图表容器内显示错误信息和 HTTP server 启动命令
 3. Each slide is a `<div class="slide">` with the 5-layer structure
 4. Charts render via `DOMContentLoaded` with 50ms delay
 5. **每个 slide 的 body 必须显式计算高度**，用 space-between 撑满
 
 ### Phase 3: Review and iterate
 
-1. Open in browser (start local server if file:// blocked)
+1. **必须用 HTTP server 打开**（即使内联了 ECharts，部分浏览器仍可能限制 file://）：
+   ```bash
+   cd "$(dirname "$HTML_PATH")" && python3 -m http.server 8766 &
+   open "http://localhost:8766/$(basename "$HTML_PATH")"
+   ```
 2. Screenshot each slide for user review
 3. Iterate on feedback: spacing, data accuracy, readability
 
@@ -364,3 +373,5 @@ Output: single self-contained HTML file.
 - Page number 格式 `01 / 08` — 零填充，斜杠两侧有空格
 - Do NOT put `legend` at `bottom` when chart has `label` on bars — legend 和 bar label 重叠。**legend 统一放 top**，grid.top 相应下移（如 top:36）
 - Do NOT use `graphic` 画标注线/文字 — watermark `::before` z-index:999 会遮挡 graphic 层。**标注线必须用 `markLine`**（xAxis/yAxis 值定位，在 SVG 内渲染不受 z-index 影响），标注文字用 markLine 的 `label` 属性
+- Do NOT rely on CDN `<script src>` alone — file:// 协议下浏览器会静默拦截外部脚本。**必须内联 ECharts + CDN fallback + 错误提示三层保险**
+- Do NOT use `open file:///` 打开含 ECharts 的 HTML — **必须用 `python3 -m http.server` + `http://localhost`**
