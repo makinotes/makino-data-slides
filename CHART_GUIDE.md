@@ -149,6 +149,34 @@ Pick charts by **what you're analyzing**, not by what data looks like.
 | Table for ranking | No visual hierarchy | Use horizontal bar |
 | Single chart for head-vs-tail | Can't show qualitative detail | Use side-by-side cards |
 | Vertical bar with long Chinese labels | Labels overlap or rotate badly | Use horizontal bar (labels on left) |
+| **Two series with >3x magnitude diff on same Y axis** | **Small series compressed to floor, unreadable** | **Use dual Y-axis, or show % change instead of absolute values** |
+| **Negative values as bar length** | **Longer bar looks "better" but means worse** | **Use absolute values + red color, or flip axis so shorter=worse** |
+
+## Scale & Magnitude Rules
+
+When two data series have very different scales, the chart becomes misleading:
+
+| Magnitude Ratio | Approach | Example |
+|----------------|----------|---------|
+| < 3x | Single Y-axis OK | Revenue 100M vs Cost 50M |
+| 3x - 10x | **Dual Y-axis required** | DAU 2500万 vs Search DAU 500万 |
+| > 10x | **Don't plot together** — use % change or separate slides | Revenue 10B vs Profit 100M |
+
+```js
+// Dual Y-axis template
+yAxis: [
+  { type: 'value', name: 'Series A (万)', position: 'left',
+    axisLabel: { formatter: v => (v/10000).toFixed(0) } },
+  { type: 'value', name: 'Series B (万)', position: 'right',
+    axisLabel: { formatter: v => (v/10000).toFixed(0) } }
+],
+series: [
+  { name: 'A', type: 'bar', yAxisIndex: 0, ... },
+  { name: 'B', type: 'bar', yAxisIndex: 1, ... }
+]
+```
+
+**Before choosing a chart, always check**: what is `max(series A) / max(series B)`? If > 3, do NOT put them on the same axis.
 
 ## ECharts Global Defaults
 

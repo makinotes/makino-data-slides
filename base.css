@@ -55,3 +55,30 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;backgro
 .fi{display:flex;align-items:center;gap:8px;font-size:12px;color:#334155;padding:5px 0;border-bottom:1px solid #f1f5f9}
 .fi:last-child{border:none}
 .fb{min-width:20px;height:20px;border-radius:4px;background:#1e40af;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* ===========================================
+   LAYOUT TEMPLATES — use class names, not inline styles
+   =========================================== */
+
+/* Chart fills most of body, minimal text */
+.layout-chart-full{display:flex;flex-direction:column;height:100%}
+.layout-chart-full .chart-container{flex:1;width:100%;min-height:0}
+.layout-chart-full .bottom-row{flex-shrink:0;margin-top:8px}
+
+/* Left chart/table + right stats or text */
+.layout-split{display:flex;gap:20px;height:100%}
+.layout-split .left{flex:1.3;min-width:0;display:flex;flex-direction:column}
+.layout-split .right{flex:0.7;display:flex;flex-direction:column;gap:10px}
+
+/* Top content + bottom content, evenly spaced */
+.layout-stack{display:flex;flex-direction:column;height:100%;justify-content:space-between}
+.layout-stack>*{flex-shrink:0}
+.layout-stack .chart-container{flex:1;min-height:0}
+
+/* 2x3 or 3x2 card grid — auto rows, no stretching */
+.layout-grid-2x3{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,auto);gap:10px;align-content:start}
+.layout-grid-2x2{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,auto);gap:10px;align-content:start}
+
+/* Stat row — horizontal strip of stat boxes */
+.stat-row{display:flex;gap:10px;flex-shrink:0}
+.stat-row .stat-box{flex:1}

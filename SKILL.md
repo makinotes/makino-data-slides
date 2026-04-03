@@ -2,7 +2,7 @@
 name: makino-data-slides
 invocation: user
 description: "Data Slides — Turn Excel/data analysis into investor-grade HTML slide cards with narrative. ECharts + static cards, Playwright screenshot."
-version: "5.0"
+version: "5.1"
 last_updated: "2026-04-03"
 ---
 
@@ -240,17 +240,50 @@ graphic: [
 ### Phase 1: Understand the data
 
 1. Read the data source (JSON/CSV/markdown/user description)
-2. Identify key metrics, comparisons, trends, distributions
-3. **Choose style preset**: Ask user which preset (default: investor). Read `STYLE_PRESETS.md` for available options.
-4. Propose slide outline: how many slides, what each one covers, **which chart type per slide** (refer to `CHART_GUIDE.md` decision table)
-5. Get user approval
+2. **Output Analysis Intent Table** (user must confirm before proceeding):
+
+```
+| Sheet/Data | Analysis Type | Chart Type | Layout | Magnitude Check |
+|------------|--------------|------------|--------|-----------------|
+| Sheet 1: 搜索vs大盘 | Cross-group comparison | Grouped Bar (dual Y-axis: 5x diff) | layout-split | max 2497万 vs 508万 = 4.9x → dual Y |
+| Sheet 2: 逐日明细 | Time series + event | Line (dual Y-axis) + markLine | layout-chart-full | same issue, dual Y |
+| Sheet 3: 留存分析 | Group comparison (dense) | HTML Table (too many cells for chart) | layout-split | N/A |
+```
+
+3. **Output Data Preprocessing Plan** (user must confirm):
+
+```
+| Column | Raw Unit | Display Unit | Transform | Decimal |
+|--------|----------|-------------|-----------|---------|
+| 大盘DAU | 个 (24970000) | 万 (2497) | ÷10000 | 0 |
+| 春节跌幅 | decimal (-0.48) | % (-48%) | ×100 | 1 |
+| 留存率 | decimal (0.332) | % (33.2%) | ×100 | 1 |
+```
+
+4. **Choose style preset**: Ask user which preset (default: investor). Read `STYLE_PRESETS.md`.
+5. Propose slide outline with narrative order: overview → comparison → trend → breakdown → conclusion
+6. Get user approval on ALL of the above
 
 ### Phase 2: Generate HTML
 
-1. **Read `base.css`** — embed full content in `<style>` block
-2. **Read `STYLE_PRESETS.md`** — embed chosen preset's CSS overrides after base.css
-3. **Read `CHART_GUIDE.md`** — use the matching chart template for each slide's analysis goal
-4. **ECharts 加载策略（双保险）**：
+1. **Read `base.css`** — embed EXACTLY as-is in `<style>` block. Do NOT modify or add inline styles that override it.
+2. **Read `STYLE_PRESETS.md`** — embed chosen preset's CSS overrides AFTER base.css
+3. **Read `CHART_GUIDE.md`** — use the matching chart template for each slide's analysis goal. Check magnitude rules.
+4. **Body height calculation (MANDATORY per slide)**:
+   ```
+   total = 720px
+   hdr = 50px (18px padding-top + ~32px content)
+   takeaway = 38px (6px margin + 8px padding × 2 + 13px text)
+   ft = 28px (6px + 10px padding + 11px text)
+   body_available = 720 - 50 - 38 - 28 = 604px
+   body_padding_top = 8px
+   body_usable = 604 - 8 = 596px
+
+   → Set .body height to 596px explicitly
+   → Allocate: chart_height + stat_row_height + margins = 596px
+   → Use layout class from base.css, NOT inline flex/grid
+   ```
+5. **ECharts 加载策略（双保险）**：
    - 首选：内联 ECharts。检查本地缓存 `/tmp/echarts.min.js`，存在则读取内容嵌入 `<script>` 标签
    - 如果本地缓存不存在，先下载：`curl -sL "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" > /tmp/echarts.min.js`
    - 内联后 HTML 文件 ~1MB，但 file:// 直接打开也能渲染图表
