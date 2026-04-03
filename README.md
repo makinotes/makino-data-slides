@@ -4,18 +4,12 @@
 
 ## Install
 
-### Claude Code
-
 ```bash
-cd ~/.claude-internal/skills/
+cd ~/.claude/skills/
 git clone https://github.com/makinotes/makino-data-slides.git
 ```
 
 Then type `/makino-data-slides` in Claude Code.
-
-### OpenClaw
-
-Copy the `makino-data-slides` folder into your agent's skills directory, then invoke `/makino-data-slides`.
 
 ## Usage
 
@@ -63,6 +57,29 @@ Single self-contained HTML file. All CSS and JS inline. Only external dependency
 
 Each slide is screenshot-ready at 1080x720 via Playwright.
 
+## Themes & Customization (Coming in v4.2)
+
+The skill comes with built-in themes optimized for different audiences. You can customize your slides locally:
+
+**Built-in Themes**:
+- `investor`: Hero numbers + stat boxes + grouped charts (current default)
+- `editorial`: Image-heavy layout, narrative flow, annotation-rich callouts
+- `executive`: Minimal design, max data density, for C-suite decks
+
+**Local Customization** (in development):
+- Create `~/.makino-data-slides/themes/` and add your own YAML theme files
+- Override colors, fonts, layout per slide using frontmatter
+- Support for `--theme custom_name` to use your theme
+
+**Roadmap** (v4.2, June 2026):
+- Theme inheritance — extend built-in themes without copying
+- Live theme editor — preview color changes in real-time
+- Preset color palettes — switch between "investor blue", "warm sunset", "minimalist monochrome"
+
+For now, all users see the investor theme. If you want to define your own color system, open an issue and describe what you need.
+
+**For detailed customization examples**, see [`EXTENSION_GUIDE.md`](../EXTENSION_GUIDE.md) — create custom themes, chart templates, and per-slide overrides.
+
 ## Example
 
 The 3月 AI 公众号生态月报 slides were built with this skill:
@@ -98,7 +115,7 @@ Your data  -->  Slide outline (user approves)  -->  HTML generation  -->  Playwr
 ## Update
 
 ```bash
-cd ~/.claude-internal/skills/makino-data-slides && git pull
+cd ~/.claude/skills/makino-data-slides && git pull
 ```
 
 The skill checks for updates automatically on each run.
@@ -122,6 +139,10 @@ Yes. The typography and layout work with English and Chinese. Just provide your 
 
 **Q: The charts look blank in the screenshot.**
 ECharts needs a moment to render. The Playwright screenshot script waits 500ms per slide. If charts are complex, increase the wait.
+
+## Design System
+
+This skill follows the unified **Makino Design System** — see [`_claude/skills/MAKINO_DESIGN_SYSTEM.md`](../MAKINO_DESIGN_SYSTEM.md) for color palette, typography, spacing, and component specifications. All three makino skills (makino-distilled, makino-data-slides, makino-article-to-slides) share this single source of truth for visual consistency.
 
 ## License
 
