@@ -68,7 +68,8 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;backgro
 /* Left chart/table + right stats or text */
 .layout-split{display:flex;gap:20px;height:100%}
 .layout-split .left{flex:1.3;min-width:0;display:flex;flex-direction:column}
-.layout-split .right{flex:0.7;display:flex;flex-direction:column;gap:10px}
+.layout-split .right{flex:0.7;display:flex;flex-direction:column;gap:10px;justify-content:flex-start}
+.layout-split .right>*{flex-shrink:0}
 
 /* Top content + bottom content, evenly spaced */
 .layout-stack{display:flex;flex-direction:column;height:100%;justify-content:space-between}
