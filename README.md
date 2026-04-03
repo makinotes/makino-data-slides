@@ -83,21 +83,31 @@ For now, all users see the investor theme. If you want to define your own color 
 
 ## Demo
 
-A logistics company's pre/post holiday order volume analysis — 4 slides, from Excel to publishable cards in one command.
+### Demo 1: Logistics — Holiday Order Analysis (4 slides)
 
-### Slide 1 — Overview: Grouped Bar Comparison
-![Overview](demo/slide_1_overview.png)
+Pre/post holiday order volume analysis — grouped bar, area chart, composition breakdown, monthly summary.
 
-### Slide 2 — Trend: Area + Line Chart (14-day)
-![Trend](demo/slide_2_trend.png)
+| | |
+|---|---|
+| ![Overview](demo/slide_1_overview.png) | ![Trend](demo/slide_2_trend.png) |
+| ![Structure](demo/slide_3_structure.png) | ![Monthly](demo/slide_4_monthly.png) |
 
-### Slide 3 — Structure: Composition Bar + Delta Ranking + Detail Table
-![Structure](demo/slide_3_structure.png)
+> Interactive HTML: [`demo/demo_slides.html`](demo/demo_slides.html)
 
-### Slide 4 — Monthly Summary: Hero Cards + Progress Bars
-![Monthly](demo/slide_4_monthly.png)
+### Demo 2: E-commerce Payment Monthly Report (8 slides)
 
-> Full interactive HTML: [`demo/demo_slides.html`](demo/demo_slides.html)
+Full payment operations report from Excel — daily trends, payment methods, category analysis, failure diagnostics, heatmap, user tiers, incident timeline.
+
+**Source data**: [`demo/ecommerce_payment_demo.xlsx`](demo/ecommerce_payment_demo.xlsx) (8 sheets, 31 days)
+
+| | |
+|---|---|
+| ![Overview](demo/slide_01.png) | ![Daily Trend](demo/slide_02.png) |
+| ![Payment Methods](demo/slide_03.png) | ![Category Scatter](demo/slide_04.png) |
+| ![Failure Analysis](demo/slide_05.png) | ![Heatmap](demo/slide_06.png) |
+| ![User Tiers](demo/slide_07.png) | ![Incidents](demo/slide_08.png) |
+
+> Interactive HTML: [`demo/ecommerce_payment_slides.html`](demo/ecommerce_payment_slides.html)
 
 ## Design System
 

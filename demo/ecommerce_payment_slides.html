@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>电商支付月报 — 2026年3月</title>
+<style>
+/* === BASE CSS === */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;background:#1a1a2e;padding:40px 0}
+.slide{width:1080px;height:720px;margin:28px auto;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);display:flex;flex-direction:column;position:relative}
+.slide .hdr{display:flex;justify-content:space-between;align-items:flex-start;padding:18px 36px 0;flex-shrink:0}
+.slide .hdr-left h2{font-size:21px;font-weight:800;color:#0f172a;margin-bottom:2px}
+.slide .hdr-left .sub{font-size:12px;color:#64748b;max-width:720px}
+.slide .hdr-right{text-align:right;flex-shrink:0}
+.slide .hdr-right .page{font-size:11px;color:#94a3b8;font-weight:600;letter-spacing:1px}
+.slide .takeaway{margin:6px 36px 0;font-size:13px;font-weight:600;color:#991b1b;padding:8px 14px;background:linear-gradient(90deg,#fef2f2,#fff);border-left:3px solid #dc2626;border-radius:0 6px 6px 0;flex-shrink:0}
+.slide .body{padding:8px 36px 0;overflow:hidden}
+.slide .ft{padding:6px 36px 10px;font-size:11px;color:#64748b;text-align:center;letter-spacing:.3px;flex-shrink:0}
+.stat-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;text-align:center}
+.stat-box .v{font-size:24px;font-weight:800;line-height:1}
+.stat-box .v.blue{color:#1e40af}.stat-box .v.red{color:#dc2626}.stat-box .v.green{color:#059669}.stat-box .v.amber{color:#d97706}
+.stat-box .k{font-size:10px;color:#64748b;margin-top:2px}
+.mini-tbl{font-size:11px;border-collapse:collapse;width:100%}
+.mini-tbl th{background:#1e3a5f;color:#fff;padding:5px 8px;text-align:left;font-weight:600;font-size:10px}
+.mini-tbl td{padding:4px 8px;border-bottom:1px solid #f1f5f9;color:#334155}
+.mini-tbl tr:nth-child(even) td{background:#f8fafc}
+.hcards{display:flex;gap:12px}
+.hc{flex:1;background:linear-gradient(135deg,#1e3a5f,#1e40af);border-radius:10px;padding:16px 12px;text-align:center;color:#fff}
+.hc .n{font-size:32px;font-weight:800;line-height:1}
+.hc .l{font-size:10px;opacity:.8;margin-top:3px}
+.hc .d{font-size:9px;opacity:.5;margin-top:1px}
+.hc.green{background:linear-gradient(135deg,#059669,#047857)}
+.hc.red{background:linear-gradient(135deg,#b91c1c,#dc2626)}
+.hc.amber{background:linear-gradient(135deg,#b45309,#d97706)}
+.irow{display:flex;gap:10px;margin-top:10px}
+.ic{flex:1;background:#f8fafc;border-radius:8px;padding:10px 8px;text-align:center;border:1px solid #e2e8f0}
+.ic .n{font-size:20px;font-weight:800;line-height:1.1}
+.ic .n.red{color:#dc2626}.ic .n.green{color:#059669}.ic .n.blue{color:#1e40af}.ic .n.amber{color:#d97706}
+.ic .l{font-size:9px;color:#64748b;margin-top:2px}
+.lbar{display:flex;height:24px;border-radius:5px;overflow:hidden;font-size:10px;font-weight:700;color:#fff;margin:8px 0 4px}
+.lbar>div{display:flex;align-items:center;justify-content:center}
+.lleg{display:flex;gap:14px;font-size:9px;color:#64748b}
+.lleg i{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle}
+.stat-row{display:flex;gap:10px;flex-shrink:0}
+.stat-row .stat-box{flex:1}
+/* Watermark */
+.slide::before{content:'马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺';position:absolute;top:0;left:0;right:0;bottom:0;z-index:999;pointer-events:none;font-size:16px;font-weight:600;color:rgba(0,0,0,0.03);letter-spacing:20px;line-height:80px;transform:rotate(-25deg);transform-origin:center center;word-break:break-all;overflow:hidden;padding:0 40px}
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 01: Overview ==================== -->
+<div class="slide" id="s1">
+  <div class="hdr"><div class="hdr-left"><h2>支付大盘月度总览</h2><div class="sub">2026年3月 · 含3/15大促</div></div><div class="hdr-right"><div class="page">01 / 08</div></div></div>
+  <div class="takeaway">3/15大促拉动月GMV达5.85亿，但大促期间支付成功率降至92.6%，退款率飙升至6.8%，系统稳定性仍有提升空间</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column;justify-content:space-between">
+    <div class="hcards" style="margin-top:8px">
+      <div class="hc"><div class="n">5.85亿</div><div class="l">月度GMV</div><div class="d">支付金额 5.51亿</div></div>
+      <div class="hc"><div class="n">344.3万</div><div class="l">总订单量</div><div class="d">日均 11.1万单</div></div>
+      <div class="hc green"><div class="n">93.8%</div><div class="l">支付成功率</div><div class="d">成功 322.9万笔</div></div>
+      <div class="hc amber"><div class="n">¥171</div><div class="l">笔均支付金额</div><div class="d">人均消费</div></div>
+    </div>
+    <div class="irow">
+      <div class="ic"><div class="n blue">301,315</div><div class="l">单日峰值订单 (3/15)</div></div>
+      <div class="ic"><div class="n red">4.84%</div><div class="l">月均退款率</div></div>
+      <div class="ic"><div class="n amber">24.3%</div><div class="l">新用户占比</div></div>
+      <div class="ic"><div class="n green">15.6万</div><div class="l">月退款总量</div></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:6px">
+      <div style="flex:1;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px">
+        <div style="font-size:13px;font-weight:700;color:#334155;margin-bottom:10px">大促周(W3) vs 常规周对比</div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1">
+            <div style="font-size:9px;color:#64748b;margin-bottom:4px">常规周均订单</div>
+            <div style="font-size:20px;font-weight:800;color:#1e40af">9.1万/天</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:#64748b;margin-bottom:4px">大促周日均订单</div>
+            <div style="font-size:20px;font-weight:800;color:#dc2626">16.1万/天</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:#64748b;margin-bottom:4px">倍率</div>
+            <div style="font-size:20px;font-weight:800;color:#d97706">1.8x</div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px">
+        <div style="font-size:13px;font-weight:700;color:#334155;margin-bottom:10px">异常事件汇总</div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1">
+            <div style="font-size:9px;color:#64748b;margin-bottom:4px">事件总数</div>
+            <div style="font-size:20px;font-weight:800;color:#dc2626">10起</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:#64748b;margin-bottom:4px">影响订单</div>
+            <div style="font-size:20px;font-weight:800;color:#dc2626">6.6万</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:#64748b;margin-bottom:4px">GMV损失</div>
+            <div style="font-size:20px;font-weight:800;color:#dc2626">1,642万</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:6px">
+      <div style="flex:1;background:#eff6ff;border-radius:6px;padding:10px 14px;border-left:3px solid #1e40af">
+        <div style="font-size:10px;font-weight:700;color:#1e40af;margin-bottom:2px">微信支付</div>
+        <div style="font-size:9px;color:#475569">占比 38.0% · 89.2万笔</div>
+      </div>
+      <div style="flex:1;background:#eff6ff;border-radius:6px;padding:10px 14px;border-left:3px solid #3b82f6">
+        <div style="font-size:10px;font-weight:700;color:#3b82f6;margin-bottom:2px">支付宝</div>
+        <div style="font-size:9px;color:#475569">占比 32.5% · 74.8万笔</div>
+      </div>
+      <div style="flex:1;background:#fef3c7;border-radius:6px;padding:10px 14px;border-left:3px solid #d97706">
+        <div style="font-size:10px;font-weight:700;color:#d97706;margin-bottom:2px">花呗/白条</div>
+        <div style="font-size:9px;color:#475569">占比 13.3% · 28.5万笔</div>
+      </div>
+      <div style="flex:1;background:#f0fdf4;border-radius:6px;padding:10px 14px;border-left:3px solid #059669">
+        <div style="font-size:10px;font-weight:700;color:#059669;margin-bottom:2px">银行卡+Apple Pay</div>
+        <div style="font-size:9px;color:#475569">占比 12.4% · 其他 3.8%</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft">数据来源：电商支付系统 · 统计周期 2026-03-01 至 2026-03-31</div>
+</div>
+
+<!-- ==================== SLIDE 02: Daily Trend ==================== -->
+<div class="slide" id="s2">
+  <div class="hdr"><div class="hdr-left"><h2>订单量与GMV日趋势</h2><div class="sub">3/15大促当天订单量达30万单，GMV突破5600万，分别为日常的3倍和3.5倍</div></div><div class="hdr-right"><div class="page">02 / 08</div></div></div>
+  <div class="takeaway">大促效应集中在3/14-3/16三天，前后衰减迅速；3/22出现二次小高峰（尾款/返场），但力度仅为大促的47%</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column">
+    <div id="chart2" style="flex:1;width:100%"></div>
+    <div class="stat-row" style="margin-top:6px">
+      <div class="stat-box"><div class="v blue">30.1万</div><div class="k">3/15 峰值订单</div></div>
+      <div class="stat-box"><div class="v green">5,602万</div><div class="k">3/15 GMV</div></div>
+      <div class="stat-box"><div class="v amber">92.6%</div><div class="k">3/15 成功率(月最低)</div></div>
+      <div class="stat-box"><div class="v red">6.12%</div><div class="k">3/15 退款率</div></div>
+    </div>
+  </div>
+  <div class="ft">双Y轴：左轴=订单量(万)，右轴=GMV(万元) · 虚线标注大促日</div>
+</div>
+
+<!-- ==================== SLIDE 03: Payment Methods ==================== -->
+<div class="slide" id="s3">
+  <div class="hdr"><div class="hdr-left"><h2>支付方式周度构成变化</h2><div class="sub">5周各渠道占比走势 · W3为大促周</div></div><div class="hdr-right"><div class="page">03 / 08</div></div></div>
+  <div class="takeaway">大促周花呗/白条占比跃升至16.7%(+3.5pp)，Apple Pay翻倍至4.9%；微信支付份额稳定在37-39%，未受大促显著冲击</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column">
+    <div id="chart3" style="flex:1;width:100%"></div>
+    <div class="stat-row" style="margin-top:6px">
+      <div class="stat-box"><div class="v blue">38.0%</div><div class="k">微信支付(月均)</div></div>
+      <div class="stat-box"><div class="v blue" style="color:#3b82f6">32.8%</div><div class="k">支付宝(月均)</div></div>
+      <div class="stat-box"><div class="v amber">13.3%</div><div class="k">花呗/白条(月均)</div></div>
+      <div class="stat-box"><div class="v green">4.5%</div><div class="k">Apple Pay(W3峰值)</div></div>
+    </div>
+  </div>
+  <div class="ft">数据来源：支付方式分布表 · 按交易金额占比统计</div>
+</div>
+
+<!-- ==================== SLIDE 04: Category Scatter ==================== -->
+<div class="slide" id="s4">
+  <div class="hdr"><div class="hdr-left"><h2>品类支付表现象限图</h2><div class="sub">X轴=平均客单价(元)，Y轴=支付成功率(%)，气泡大小=订单量</div></div><div class="hdr-right"><div class="page">04 / 08</div></div></div>
+  <div class="takeaway">跨境商品成功率仅89.1%、二次支付率高达15.2%，是支付体验最差品类；虚拟充值/图书文具成功率>97%，为标杆品类</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column">
+    <div id="chart4" style="flex:1;width:100%"></div>
+    <div class="stat-row" style="margin-top:6px">
+      <div class="stat-box"><div class="v red">89.1%</div><div class="k">跨境商品(最低)</div></div>
+      <div class="stat-box"><div class="v green">98.2%</div><div class="k">虚拟充值(最高)</div></div>
+      <div class="stat-box"><div class="v amber">36.9秒</div><div class="k">跨境支付耗时</div></div>
+      <div class="stat-box"><div class="v blue">2.5秒</div><div class="k">虚拟充值耗时</div></div>
+    </div>
+  </div>
+  <div class="ft">气泡面积正比于订单量 · 虚线为全品类均值</div>
+</div>
+
+<!-- ==================== SLIDE 05: Failure Analysis ==================== -->
+<div class="slide" id="s5">
+  <div class="hdr"><div class="hdr-left"><h2>支付失败原因 · 常规 vs 大促</h2><div class="sub">Top 8失败原因：大促周(W3)影响订单量 vs 常规周均值</div></div><div class="hdr-right"><div class="page">05 / 08</div></div></div>
+  <div class="takeaway">余额不足在大促周暴涨78%(31.9→56.9)，银行卡限额涨77%，说明用户消费意愿远超支付能力——需提前做额度提醒和分期引导</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column">
+    <div id="chart5" style="flex:1;width:100%"></div>
+    <div class="irow" style="margin-top:6px">
+      <div class="ic"><div class="n red">32.5%</div><div class="l">余额不足(占比第一)</div></div>
+      <div class="ic"><div class="n amber">18.7%</div><div class="l">银行卡限额(第二)</div></div>
+      <div class="ic"><div class="n blue">47.3%</div><div class="l">余额不足挽回率</div></div>
+      <div class="ic"><div class="n green">65.0%</div><div class="l">银行卡限额挽回率</div></div>
+    </div>
+  </div>
+  <div class="ft">影响订单量为日均值 · 挽回率=引导切换支付方式后完成支付的比例</div>
+</div>
+
+<!-- ==================== SLIDE 06: Heatmap ==================== -->
+<div class="slide" id="s6">
+  <div class="hdr"><div class="hdr-left"><h2>分时支付热力图</h2><div class="sub">每小时平均支付成功笔数 · 按周汇总</div></div><div class="hdr-right"><div class="page">06 / 08</div></div></div>
+  <div class="takeaway">周六20-21点是全周支付高峰(4,381笔/h)，工作日11点和20点形成双峰；凌晨3-5点是运维窗口(最低61笔/h)</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column">
+    <div id="chart6" style="flex:1;width:100%"></div>
+  </div>
+  <div class="ft">颜色深浅代表交易密度 · 数据为3月周均值</div>
+</div>
+
+<!-- ==================== SLIDE 07: User Tiers ==================== -->
+<div class="slide" id="s7">
+  <div class="hdr"><div class="hdr-left"><h2>用户分层支付画像</h2><div class="sub">按年消费金额分6层 · 用户数、支付频次、成功率、退款率</div></div><div class="hdr-right"><div class="page">07 / 08</div></div></div>
+  <div class="takeaway">超级VIP仅占1.2%用户，但月均支付28.5次、金额8520元，成功率97.8%；沉睡用户成功率仅88.5%，退款率10.5%——激活前先修支付体验</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column;justify-content:space-between">
+    <div id="chart7" style="flex:1;width:100%;min-height:0"></div>
+    <table class="mini-tbl" style="margin-top:6px;flex-shrink:0">
+      <tr><th>用户层级</th><th>用户数(万)</th><th>占比</th><th>月均支付</th><th>月均金额</th><th>成功率</th><th>退款率</th><th>客诉率</th></tr>
+      <tr><td>超级VIP</td><td>2.8</td><td>1.2%</td><td>28.5次</td><td>¥8,520</td><td style="color:#059669;font-weight:700">97.8%</td><td>2.5%</td><td>0.8%</td></tr>
+      <tr><td>高价值</td><td>15.6</td><td>6.8%</td><td>12.3次</td><td>¥3,280</td><td style="color:#059669;font-weight:700">96.5%</td><td>3.5%</td><td>1.2%</td></tr>
+      <tr><td>成长期</td><td>42.3</td><td>18.4%</td><td>6.8次</td><td>¥850</td><td>95.2%</td><td>4.8%</td><td>1.8%</td></tr>
+      <tr><td>普通活跃</td><td>68.5</td><td>29.8%</td><td>3.2次</td><td>¥225</td><td>94.5%</td><td>5.5%</td><td>2.5%</td></tr>
+      <tr><td>低频</td><td>85.2</td><td>37.1%</td><td>1.1次</td><td>¥68</td><td style="color:#d97706;font-weight:700">92.8%</td><td>6.8%</td><td>3.5%</td></tr>
+      <tr><td>沉睡</td><td>15.6</td><td>6.8%</td><td>0.1次</td><td>¥12</td><td style="color:#dc2626;font-weight:700">88.5%</td><td style="color:#dc2626;font-weight:700">10.5%</td><td style="color:#dc2626;font-weight:700">6.2%</td></tr>
+    </table>
+  </div>
+  <div class="ft">用户分层基于近12个月累计消费金额 · 沉睡定义为>90天未支付</div>
+</div>
+
+<!-- ==================== SLIDE 08: Incidents Timeline ==================== -->
+<div class="slide" id="s8">
+  <div class="hdr"><div class="hdr-left"><h2>3月异常事件与GMV损失</h2><div class="sub">10起事件累计影响6.6万订单，GMV损失1,642万元</div></div><div class="hdr-right"><div class="page">08 / 08</div></div></div>
+  <div class="takeaway">3/15大促两起事件(瞬时过载+花呗额度)合计损失900万GMV，占全月损失的55%——大促预案需重点覆盖容量和额度两个维度</div>
+  <div class="body" style="height:570px;display:flex;flex-direction:column">
+    <div id="chart8" style="flex:1;width:100%"></div>
+    <div class="stat-row" style="margin-top:6px;flex-shrink:0">
+      <div class="stat-box"><div class="v red">1,642万</div><div class="k">总GMV损失</div></div>
+      <div class="stat-box"><div class="v amber">520万</div><div class="k">最大单次(花呗额度)</div></div>
+      <div class="stat-box"><div class="v blue">180分钟</div><div class="k">最长持续时间</div></div>
+      <div class="stat-box"><div class="v green">100%</div><div class="k">处置完成率</div></div>
+    </div>
+  </div>
+  <div class="ft">事件按GMV损失排序 · 所有事件均已处置完毕</div>
+</div>
+
+<script>
+/* ECharts loaded via CDN below */
+</script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script>
+if(typeof echarts==='undefined'){document.querySelectorAll('[id^=chart]').forEach(function(el){el.innerHTML='<div style="padding:40px;color:#dc2626;font-size:14px;">ECharts加载失败。请用 HTTP server 打开：<br><code>python3 -m http.server 8766</code></div>'});}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){
+
+const C={blue:'#1e40af',blueL:'#93c5fd',blueP:'#dbeafe',red:'#dc2626',green:'#059669',purple:'#7c3aed',amber:'#d97706',gray:'#9ca3af',dark:'#1e293b',mid:'#475569',light:'#64748b',grid:'#f1f5f9',axis:'#e2e8f0'};
+const bA={axisLine:{lineStyle:{color:C.axis}},splitLine:{lineStyle:{color:C.grid}},axisLabel:{fontSize:11,color:C.light}};
+
+// === Chart 2: Daily trend (dual Y) ===
+var c2=echarts.init(document.getElementById('chart2'));
+c2.setOption({
+  animation:false,
+  grid:{left:60,right:70,top:36,bottom:28},
+  legend:{top:4,textStyle:{fontSize:11}},
+  xAxis:{type:'category',data:["03/01","03/02","03/03","03/04","03/05","03/06","03/07","03/08","03/09","03/10","03/11","03/12","03/13","03/14","03/15","03/16","03/17","03/18","03/19","03/20","03/21","03/22","03/23","03/24","03/25","03/26","03/27","03/28","03/29","03/30","03/31"],axisLabel:{fontSize:10,interval:2},axisLine:{lineStyle:{color:C.axis}}},
+  yAxis:[
+    {type:'value',name:'订单量(万)',position:'left',axisLabel:{fontSize:10,formatter:function(v){return (v/10000).toFixed(0)}},splitLine:{lineStyle:{color:C.grid}},axisLine:{lineStyle:{color:C.blue}}},
+    {type:'value',name:'GMV(万元)',position:'right',axisLabel:{fontSize:10,formatter:function(v){return v}},splitLine:{show:false},axisLine:{lineStyle:{color:C.red}}}
+  ],
+  series:[
+    {name:'订单量',type:'bar',yAxisIndex:0,data:[104809,88096,91155,86613,93826,91784,116279,111152,83183,81975,101231,89958,95357,179852,301315,161126,102400,87743,71932,108184,117950,142638,109852,95239,89725,108657,89719,123845,122478,99429,95945],itemStyle:{color:C.blue,borderRadius:[3,3,0,0]},barWidth:18,
+      markLine:{silent:true,symbol:'none',lineStyle:{type:'dashed',width:1.5,color:C.red},data:[{xAxis:'03/15',label:{formatter:'3/15 大促',fontSize:10,color:C.red,fontWeight:600,position:'insideStartTop'}}]}
+    },
+    {name:'GMV(万元)',type:'line',yAxisIndex:1,data:[1743,1451,1430,1524,1629,1181,2101,1974,1339,1472,1485,1469,1522,2826,5602,2773,2020,1454,1268,1748,2020,2689,2009,1422,1296,1643,1519,2126,2277,1800,1677],lineStyle:{width:2.5,color:C.red},itemStyle:{color:C.red},symbol:'none'}
+  ]
+});
+
+// === Chart 3: Payment Methods Stacked Bar ===
+var c3=echarts.init(document.getElementById('chart3'));
+c3.setOption({
+  animation:false,
+  grid:{left:50,right:30,top:36,bottom:28},
+  legend:{top:4,textStyle:{fontSize:10}},
+  xAxis:{type:'category',data:['W1(3.1-3.7)','W2(3.8-3.14)','W3(3.15-3.21)','W4(3.22-3.28)','W5(3.29-3.31)'],axisLabel:{fontSize:10},axisLine:{lineStyle:{color:C.axis}}},
+  yAxis:{type:'value',max:100,axisLabel:{fontSize:10,formatter:'{value}%'},splitLine:{lineStyle:{color:C.grid}}},
+  series:[
+    {name:'微信支付',type:'bar',stack:'t',data:[38.73,37.9,38.65,36.66,37.35],itemStyle:{color:C.blue}},
+    {name:'支付宝',type:'bar',stack:'t',data:[31.13,35.3,31.79,31.79,34.21],itemStyle:{color:'#3b82f6'}},
+    {name:'银行卡',type:'bar',stack:'t',data:[8.6,5.11,11.16,7.28,6.09],itemStyle:{color:C.gray}},
+    {name:'花呗/白条',type:'bar',stack:'t',data:[13.52,13.24,16.74,12.9,13.24],itemStyle:{color:C.amber}},
+    {name:'Apple Pay',type:'bar',stack:'t',data:[2.93,3.74,4.93,1.44,9.55],itemStyle:{color:C.green}},
+    {name:'余额支付',type:'bar',stack:'t',data:[6.57,5.75,5.06,8.7,4.3],itemStyle:{color:C.purple}}
+  ],
+  barWidth:60
+});
+
+// === Chart 4: Category Scatter ===
+var c4=echarts.init(document.getElementById('chart4'));
+var catData=[
+  [2759.03,94.0,12042,'数码3C',0],
+  [310.27,95.74,29391,'服饰鞋包',1],
+  [211.78,97.16,18294,'美妆个护',1],
+  [62.29,94.13,36370,'食品生鲜',2],
+  [505.15,92.42,8646,'家居家装',0],
+  [194.98,96.2,14905,'母婴玩具',1],
+  [264.56,94.21,9544,'运动户外',1],
+  [65.97,97.39,21214,'图书文具',2],
+  [51.48,98.17,44843,'虚拟充值',2],
+  [716.44,89.14,6520,'跨境商品',0]
+];
+var catColors=[C.blue,C.green,C.amber];
+c4.setOption({
+  animation:false,
+  grid:{left:55,right:30,top:20,bottom:48},
+  xAxis:{name:'平均客单价(元) →',nameLocation:'center',nameGap:28,nameTextStyle:{fontSize:11,color:C.mid},type:'log',min:30,max:5000,axisLine:{lineStyle:{color:C.axis}},splitLine:{lineStyle:{color:C.grid}},axisLabel:{fontSize:10,color:C.light,formatter:function(v){return v>=1000?(v/1000)+'k':v}}},
+  yAxis:{name:'支付成功率(%) →',nameLocation:'center',nameGap:38,nameTextStyle:{fontSize:11,color:C.mid},min:88,max:100,axisLine:{lineStyle:{color:C.axis}},splitLine:{lineStyle:{color:C.grid}},axisLabel:{fontSize:10,color:C.light,formatter:'{value}%'}},
+  series:[{
+    type:'scatter',
+    data:catData,
+    symbolSize:function(d){return Math.sqrt(d[2])*0.6+8},
+    itemStyle:{opacity:0.8,borderColor:'#fff',borderWidth:1.5,color:function(p){return catColors[p.data[4]]}},
+    label:{show:true,formatter:function(p){return p.data[3]},fontSize:10,position:'right',color:C.dark},
+    labelLayout:{hideOverlap:true},
+    markLine:{silent:true,symbol:'none',lineStyle:{type:'dashed',width:1,color:'#94a3b8'},
+      data:[
+        [{coord:[0,95],symbol:'none'},{coord:[10000,95],symbol:'none',label:{show:true,formatter:'均值 95%',fontSize:9,color:'#94a3b8',position:'insideEndTop'}}]
+      ]
+    }
+  }]
+});
+
+// === Chart 5: Failure Grouped Bar ===
+var c5=echarts.init(document.getElementById('chart5'));
+var failReasons=['余额不足','银行卡限额','网络超时','风控拦截','验证码过期','重复支付','银行维护','账户冻结'];
+var failNormal=[32.0,18.2,12.0,11.0,8.5,5.3,4.0,3.2]; // avg W1,W2,W4
+var failW3=[56.9,31.4,21.8,19.2,14.0,9.7,6.8,5.4];
+c5.setOption({
+  animation:false,
+  grid:{left:80,right:50,top:36,bottom:10},
+  legend:{top:4,textStyle:{fontSize:11}},
+  yAxis:{type:'category',data:failReasons.slice().reverse(),axisLine:{show:false},axisTick:{show:false},axisLabel:{fontSize:11,color:C.mid}},
+  xAxis:{type:'value',axisLabel:{fontSize:10,color:C.light},splitLine:{lineStyle:{color:C.grid}},name:'影响订单量(日均)',nameTextStyle:{fontSize:9,color:C.light}},
+  series:[
+    {name:'常规周均值',type:'bar',data:failNormal.slice().reverse(),itemStyle:{color:C.blueL,borderRadius:[0,4,4,0]},barWidth:14,label:{show:true,position:'right',fontSize:9,color:C.light}},
+    {name:'W3大促周',type:'bar',data:failW3.slice().reverse(),itemStyle:{color:C.red,borderRadius:[0,4,4,0]},barWidth:14,label:{show:true,position:'right',fontSize:9,fontWeight:700,color:C.red}}
+  ],
+  barCategoryGap:'25%',barGap:'5%'
+});
+
+// === Chart 6: Heatmap ===
+var c6=echarts.init(document.getElementById('chart6'));
+var hours=["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"];
+var days=['周一','周二','周三','周四','周五','周六','周日'];
+var hmData=[];
+var rawDays={
+  '周一':[445,220,147,92,61,90,230,541,1374,1958,2619,2630,2600,2180,2461,2461,2349,1823,2118,2631,3083,2603,2023,1030],
+  '周二':[498,243,147,98,61,82,238,555,1486,2309,2973,3082,2400,2335,2600,2391,2155,1942,2228,2687,3209,2836,2001,1108],
+  '周三':[526,255,154,91,59,96,260,599,1364,2342,2532,2862,2484,2386,2701,2563,2353,2228,2179,2749,3296,2624,1942,1106],
+  '周四':[483,251,168,102,66,97,238,586,1450,2449,2902,3024,2656,2602,2946,2331,2423,2046,2468,2689,3268,2961,1945,1185],
+  '周五':[508,282,177,105,71,107,289,651,1648,2943,2996,3288,3017,2921,3108,3093,2618,2450,2580,3362,3714,3450,2272,1354],
+  '周六':[617,323,215,123,80,132,325,710,1881,2975,3218,4111,3689,3256,3507,3136,3361,2874,3075,3957,4381,4102,2543,1422],
+  '周日':[601,350,208,127,77,124,323,750,1812,2892,3184,3613,3320,3276,3242,3094,3244,2831,2823,3585,4038,3731,2699,1389]
+};
+days.forEach(function(d,di){rawDays[d].forEach(function(v,hi){hmData.push([hi,di,v])})});
+c6.setOption({
+  animation:false,
+  grid:{left:50,right:80,top:10,bottom:28},
+  xAxis:{type:'category',data:hours,axisLabel:{fontSize:10,color:C.light},axisLine:{lineStyle:{color:C.axis}},splitArea:{show:false},position:'bottom'},
+  yAxis:{type:'category',data:days,axisLabel:{fontSize:11,color:C.mid},axisLine:{show:false},axisTick:{show:false}},
+  visualMap:{min:50,max:4400,calculable:false,orient:'vertical',right:6,top:'center',itemHeight:200,inRange:{color:['#dbeafe','#93c5fd','#3b82f6','#1e40af','#1e3a5f']},textStyle:{fontSize:9,color:C.light}},
+  series:[{
+    type:'heatmap',data:hmData,
+    label:{show:false},
+    itemStyle:{borderWidth:2,borderColor:'#fff'},
+    emphasis:{itemStyle:{shadowBlur:6,shadowColor:'rgba(0,0,0,0.3)'}}
+  }]
+});
+
+// === Chart 7: User Tier Horizontal Bar ===
+var c7=echarts.init(document.getElementById('chart7'));
+var tiers=['沉睡','低频','普通活跃','成长期','高价值','超级VIP'];
+var tierUsers=[15.6,85.2,68.5,42.3,15.6,2.8];
+var tierAmount=[12,68,225,850,3280,8520];
+var tierColors=[C.gray,C.blueL,'#60a5fa','#3b82f6',C.blue,'#1e3a5f'];
+c7.setOption({
+  animation:false,
+  grid:{left:80,right:60,top:36,bottom:10},
+  legend:{top:4,textStyle:{fontSize:10}},
+  yAxis:{type:'category',data:tiers,axisLine:{show:false},axisTick:{show:false},axisLabel:{fontSize:11,color:C.mid}},
+  xAxis:[
+    {type:'value',position:'bottom',axisLabel:{fontSize:10,formatter:'{value}万',color:C.light},splitLine:{lineStyle:{color:C.grid}},name:'用户数(万)'},
+  ],
+  series:[
+    {name:'用户数(万)',type:'bar',data:tierUsers.map(function(v,i){return {value:v,itemStyle:{color:tierColors[i]}}}),barWidth:20,itemStyle:{borderRadius:[0,5,5,0]},
+      label:{show:true,position:'right',fontSize:10,fontWeight:700,formatter:function(p){return p.value+'万'}}
+    }
+  ]
+});
+
+// === Chart 8: Incident Bar ===
+var c8=echarts.init(document.getElementById('chart8'));
+var events=['花呗额度耗尽','促销瞬时过载','风控误杀','风控拦截激增','银行通道拒绝','支付页面白屏','支付渠道异常','支付超时飙升','重复扣款','对账差异'];
+var evtGMV=[520,380,215,185,165,89,48.5,27.2,12.8,0];
+var evtOrders=[22000,15000,8500,2800,6800,5200,3200,1800,450,0];
+var evtDates=['3/15','3/15','3/8','3/25','3/31','3/28','3/3','3/12','3/18','3/22'];
+var evtColors=[C.red,C.red,C.amber,C.amber,C.blue,C.blue,C.blueL,C.blueL,C.gray,C.gray];
+c8.setOption({
+  animation:false,
+  grid:{left:110,right:60,top:10,bottom:10},
+  yAxis:{type:'category',data:events.slice().reverse(),axisLine:{show:false},axisTick:{show:false},axisLabel:{fontSize:10,color:C.mid}},
+  xAxis:{type:'value',name:'GMV损失(万元)',nameTextStyle:{fontSize:9,color:C.light},axisLabel:{fontSize:10,color:C.light},splitLine:{lineStyle:{color:C.grid}}},
+  series:[{
+    type:'bar',data:evtGMV.slice().reverse().map(function(v,i){return {value:v,itemStyle:{color:evtColors.slice().reverse()[i]}}}),
+    barWidth:18,itemStyle:{borderRadius:[0,5,5,0]},
+    label:{show:true,position:'right',fontSize:10,fontWeight:600,formatter:function(p){var idx=events.length-1-p.dataIndex;return p.value>0?p.value+'万 ('+evtDates[idx]+')':''}}
+  }]
+});
+
+},50)});
+</script>
+</body>
+</html>
