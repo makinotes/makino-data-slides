@@ -155,7 +155,7 @@ const C = {
 ### Watermark
 ```css
 .slide::before {
-  content: '马奇诺  马奇诺  ...';  /* 40 repeats, double-space separated */
+  content: '{BRAND}  {BRAND}  ...';  /* Replace {BRAND} with your brand name -- 40 repeats, double-space separated */
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   z-index: 999; pointer-events: none;
   font-size: 16px; font-weight: 600;

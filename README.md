@@ -80,7 +80,6 @@ The skill comes with built-in themes optimized for different audiences. You can 
 
 For now, all users see the investor theme. If you want to define your own color system, open an issue and describe what you need.
 
-**For detailed customization examples**, see [`EXTENSION_GUIDE.md`](../EXTENSION_GUIDE.md) — create custom themes, chart templates, and per-slide overrides.
 
 ## Demo
 
@@ -154,7 +153,6 @@ ECharts needs a moment to render. The Playwright screenshot script waits 500ms p
 
 ## Design System
 
-This skill follows the unified **Makino Design System** — see [`_claude/skills/MAKINO_DESIGN_SYSTEM.md`](../MAKINO_DESIGN_SYSTEM.md) for color palette, typography, spacing, and component specifications. All three makino skills (makino-distilled, makino-data-slides, makino-article-to-slides) share this single source of truth for visual consistency.
 
 ## License
 
