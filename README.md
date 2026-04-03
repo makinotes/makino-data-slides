@@ -172,7 +172,7 @@ ECharts needs a moment to render. The Playwright screenshot script waits 500ms p
 
 ## License
 
-MIT
+Apache 2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE)
 
 ## Author
 
