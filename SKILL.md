@@ -2,7 +2,7 @@
 name: makino-data-slides
 invocation: user
 description: "Data Slides — Turn Excel/data analysis into investor-grade HTML slide cards with narrative. ECharts + static cards, Playwright screenshot."
-version: "4.3"
+version: "5.0"
 last_updated: "2026-04-03"
 ---
 
@@ -241,13 +241,16 @@ graphic: [
 
 1. Read the data source (JSON/CSV/markdown/user description)
 2. Identify key metrics, comparisons, trends, distributions
-3. Propose slide outline: how many slides, what each one covers
-4. Get user approval
+3. **Choose style preset**: Ask user which preset (default: investor). Read `STYLE_PRESETS.md` for available options.
+4. Propose slide outline: how many slides, what each one covers, **which chart type per slide** (refer to `CHART_GUIDE.md` decision table)
+5. Get user approval
 
 ### Phase 2: Generate HTML
 
-1. Create single HTML file with all slides
-2. **ECharts 加载策略（双保险）**：
+1. **Read `base.css`** — embed full content in `<style>` block
+2. **Read `STYLE_PRESETS.md`** — embed chosen preset's CSS overrides after base.css
+3. **Read `CHART_GUIDE.md`** — use the matching chart template for each slide's analysis goal
+4. **ECharts 加载策略（双保险）**：
    - 首选：内联 ECharts。检查本地缓存 `/tmp/echarts.min.js`，存在则读取内容嵌入 `<script>` 标签
    - 如果本地缓存不存在，先下载：`curl -sL "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" > /tmp/echarts.min.js`
    - 内联后 HTML 文件 ~1MB，但 file:// 直接打开也能渲染图表
@@ -281,68 +284,15 @@ await page.waitForTimeout(500);
 await slide.screenshot({ path: outputPath, type: 'png' });
 ```
 
-## CSS Reference Template
+## CSS & Style
 
-完整的基线 CSS（从 charts_v4.html 验证提取），每次生成直接复制：
+**CSS template and chart guide are in separate files** — Read them and embed into generated HTML.
 
-```css
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;background:#1a1a2e;padding:40px 0}
-.slide{width:1080px;height:720px;margin:28px auto;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);display:flex;flex-direction:column;position:relative}
-.slide::before{
-  content:'马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺  马奇诺';
-  position:absolute;top:0;left:0;right:0;bottom:0;z-index:999;pointer-events:none;
-  font-size:16px;font-weight:600;color:rgba(0,0,0,0.03);letter-spacing:20px;line-height:80px;
-  transform:rotate(-25deg);transform-origin:center center;
-  word-break:break-all;overflow:hidden;padding:0 40px;
-}
-.slide .hdr{display:flex;justify-content:space-between;align-items:flex-start;padding:18px 36px 0;flex-shrink:0}
-.slide .hdr-left h2{font-size:21px;font-weight:800;color:#0f172a;margin-bottom:2px}
-.slide .hdr-left .sub{font-size:12px;color:#64748b;max-width:720px}
-.slide .hdr-right{text-align:right;flex-shrink:0}
-.slide .hdr-right .page{font-size:11px;color:#94a3b8;font-weight:600;letter-spacing:1px}
-.slide .takeaway{margin:6px 36px 0;font-size:13px;font-weight:600;color:#991b1b;padding:8px 14px;background:linear-gradient(90deg,#fef2f2,#fff);border-left:3px solid #dc2626;border-radius:0 6px 6px 0;flex-shrink:0}
-.slide .body{padding:8px 36px 0;flex:1;overflow:hidden}
-.slide .ft{padding:6px 36px 10px;font-size:11px;color:#64748b;text-align:center;letter-spacing:.3px;flex-shrink:0}
-
-/* Stat box */
-.stat-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;text-align:center}
-.stat-box .v{font-size:24px;font-weight:800;line-height:1}
-.stat-box .v.blue{color:#1e40af} .stat-box .v.red{color:#dc2626} .stat-box .v.green{color:#059669} .stat-box .v.amber{color:#d97706}
-.stat-box .k{font-size:10px;color:#64748b;margin-top:2px}
-
-/* Mini table */
-.mini-tbl{font-size:11px;border-collapse:collapse;width:100%}
-.mini-tbl th{background:#1e3a5f;color:#fff;padding:5px 8px;text-align:left;font-weight:600;font-size:10px}
-.mini-tbl td{padding:4px 8px;border-bottom:1px solid #f1f5f9;color:#334155}
-.mini-tbl tr:nth-child(even) td{background:#f8fafc}
-
-/* Hero cards */
-.hcards{display:flex;gap:12px}
-.hc{flex:1;background:linear-gradient(135deg,#1e3a5f,#1e40af);border-radius:10px;padding:16px 12px;text-align:center;color:#fff}
-.hc .n{font-size:32px;font-weight:800;line-height:1}
-.hc .l{font-size:10px;opacity:.8;margin-top:3px}
-.hc .d{font-size:9px;opacity:.5;margin-top:1px}
-
-/* Insight row */
-.irow{display:flex;gap:10px;margin-top:10px}
-.ic{flex:1;background:#f8fafc;border-radius:8px;padding:10px 8px;text-align:center;border:1px solid #e2e8f0}
-.ic .n{font-size:20px;font-weight:800;line-height:1.1}
-.ic .n.red{color:#dc2626} .ic .n.green{color:#059669} .ic .n.blue{color:#1e40af} .ic .n.amber{color:#d97706}
-.ic .l{font-size:9px;color:#64748b;margin-top:2px}
-
-/* Layer bar */
-.lbar{display:flex;height:24px;border-radius:5px;overflow:hidden;font-size:10px;font-weight:700;color:#fff;margin:8px 0 4px}
-.lbar>div{display:flex;align-items:center;justify-content:center}
-.lleg{display:flex;gap:14px;font-size:9px;color:#64748b}
-.lleg i{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle}
-
-/* Findings */
-.flist{display:flex;flex-direction:column;gap:4px}
-.fi{display:flex;align-items:center;gap:8px;font-size:12px;color:#334155;padding:5px 0;border-bottom:1px solid #f1f5f9}
-.fi:last-child{border:none}
-.fb{min-width:20px;height:20px;border-radius:4px;background:#1e40af;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-```
+| File | Purpose | When to Read |
+|------|---------|-------------|
+| `base.css` | Layout structure, components (shared across all presets) | Always — embed in every HTML |
+| `STYLE_PRESETS.md` | 3 color themes (investor/corporate/dark) | Phase 1 — user picks preset |
+| `CHART_GUIDE.md` | Chart selection by analysis goal + ECharts templates | Phase 2 — pick chart type per slide |
 
 ## Data Accuracy Rules
 
