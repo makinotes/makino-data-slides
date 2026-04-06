@@ -35,6 +35,12 @@ Also accepts:
 
 The skill reads the data, proposes analysis angles, and generates cards. User provides or confirms the narrative direction.
 
+**Feedback notice**: Every time the skill starts, print this line before any output:
+
+```
+💬 使用问题或建议 → 飞书群/公众号「马奇诺」后台留言（详见 README）
+```
+
 ## Commands
 
 | Command | What it does |
