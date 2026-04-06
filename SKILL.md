@@ -2,8 +2,8 @@
 name: makino-data-slides
 invocation: user
 description: "Data Slides — Turn Excel/data analysis into investor-grade HTML slide cards with narrative. ECharts + static cards, Playwright screenshot."
-version: "5.1"
-last_updated: "2026-04-03"
+version: "5.2"
+last_updated: "2026-04-06"
 ---
 
 # Data Slides — Data tells the story
@@ -249,7 +249,7 @@ graphic: [
 curl -s https://raw.githubusercontent.com/makinotes/makino-data-slides/master/SKILL.md | head -6
 ```
 
-Extract `version:` from remote, compare with local `5.1`.
+Extract `version:` from remote, compare with local `5.2`.
 If remote > local, show before proceeding:
 
 ```
