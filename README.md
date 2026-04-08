@@ -1,6 +1,18 @@
+<div align="center">
+
 # makino-data-slides — Data tells the story
 
-数据分析结论直接生成文章级配图，省掉手动做图做排版，带观点带叙事带图表。
+> 数据分析结论直接生成文章级配图，省掉手动做图做排版，带观点带叙事带图表。
+
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-5A67D8.svg)](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills)
+[![AgentSkills](https://img.shields.io/badge/AgentSkills-Standard-gray.svg)](https://github.com/anthropics/claude-code)
+
+[Features](#features) · [Install](#install) · [Usage](#usage) · [Demo](#demo) · [FAQ](#faq)
+
+</div>
+
+---
 
 ## Install
 
