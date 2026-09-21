@@ -5,7 +5,7 @@
 > 数据分析结论直接生成文章级配图，省掉手动做图做排版，带观点带叙事带图表。
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-5A67D8.svg)](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-5A67D8.svg)](https://docs.claude.com/en/docs/claude-code/skills)
 [![AgentSkills](https://img.shields.io/badge/AgentSkills-Standard-gray.svg)](https://github.com/anthropics/claude-code)
 
 [Features](#features) · [Install](#install) · [Usage](#usage) · [Demo](#demo) · [FAQ](#faq)
@@ -48,7 +48,7 @@ This skill is not just "draw a chart" — it's **analyze data → form opinions 
 - Each card 1080x720, fixed 5-layer structure (header → takeaway → chart → footer)
 - Playwright auto-screenshot, ready to embed in articles
 - Investor-report visual language: hero numbers, stat boxes, ECharts charts, insight callouts
-- Not a chart tool (use `/chart` for that) — this is data analysis → opinionated visual cards
+- Not a chart tool — this is data analysis → opinionated visual cards
 
 ## What Problem Does This Solve
 
@@ -58,9 +58,9 @@ You finished a data analysis, conclusions scattered across notebooks, and you wa
 
 | Need | Use this? | Use instead |
 |------|-----------|-------------|
-| Single chart (line/bar/pie) | No | `/chart` |
-| Article → navigable slide deck | No | `/article-to-slides` |
-| Cover image for article | No | `/cover-gen` |
+| Single chart (line/bar/pie) | No | Any charting library |
+| Article → navigable slide deck | No | [`/content-to-html`](https://github.com/makinotes/makino-content-to-html) |
+| Cover image for article | No | An image generator |
 | **Data analysis → multi-slide cards with narrative** | **Yes** | — |
 
 ## Input
@@ -76,27 +76,6 @@ Single self-contained HTML file. All CSS and JS inline. Only external dependency
 No PowerPoint, no Keynote, no dependencies. Open in any browser, share as a file, or screenshot individual slides.
 
 Each slide is screenshot-ready at 1080x720 via Playwright.
-
-## Themes & Customization (Coming in v4.2)
-
-The skill comes with built-in themes optimized for different audiences. You can customize your slides locally:
-
-**Built-in Themes**:
-- `investor`: Hero numbers + stat boxes + grouped charts (current default)
-- `editorial`: Image-heavy layout, narrative flow, annotation-rich callouts
-- `executive`: Minimal design, max data density, for C-suite decks
-
-**Local Customization** (in development):
-- Create `~/.makino-data-slides/themes/` and add your own YAML theme files
-- Override colors, fonts, layout per slide using frontmatter
-- Support for `--theme custom_name` to use your theme
-
-**Roadmap** (v4.2, June 2026):
-- Theme inheritance — extend built-in themes without copying
-- Live theme editor — preview color changes in real-time
-- Preset color palettes — switch between "investor blue", "warm sunset", "minimalist monochrome"
-
-For now, all users see the investor theme. If you want to define your own color system, open an issue and describe what you need.
 
 
 ## Demo
@@ -167,11 +146,11 @@ JSON, CSV, markdown tables, or just describe your data in natural language. The 
 **Q: Can I customize colors?**
 The default palette is investor-report style (blue/red/green/amber). You can override per-slide, but the palette is designed to work as a system.
 
-**Q: How is this different from /chart?**
-`/chart` generates individual charts (line, bar, pie, etc.). `/makino-data-slides` generates complete slide cards with multiple visual elements, typography, and narrative structure — designed as article illustrations.
+**Q: How is this different from a chart tool?**
+A chart tool draws one chart. `/makino-data-slides` generates complete slide cards with multiple visual elements, typography, and narrative structure — designed as article illustrations.
 
-**Q: How is this different from /article-to-slides?**
-`/article-to-slides` converts finished articles into navigable presentations. `/makino-data-slides` creates static data cards from raw data — for embedding in articles, not replacing them.
+**Q: How is this different from /content-to-html?**
+`/content-to-html` turns a finished article into a presentation or page. `/makino-data-slides` creates static data cards from raw data — for embedding in articles, not replacing them.
 
 **Q: Can I use this for non-Chinese content?**
 Yes. The typography and layout work with English and Chinese. Just provide your data in any language.
@@ -179,21 +158,15 @@ Yes. The typography and layout work with English and Chinese. Just provide your 
 **Q: The charts look blank in the screenshot.**
 ECharts needs a moment to render. The Playwright screenshot script waits 500ms per slide. If charts are complex, increase the wait.
 
-## Design System
-
-
 ## License
 
 Apache 2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE)
 
 ## Community & Contact
 
-这两个项目目前都已上线，我会根据自己的使用情况和大家的反馈持续迭代。如果没有太多问题，后续会转入维护状态。所以**趁现在还在活跃开发期，有任何使用问题、功能建议、或者改进想法，欢迎随时反馈**，这对项目帮助很大。
+Bugs, questions and ideas: open an issue. 也可以在公众号「马奇诺」后台留言。
 
-| | |
-|---|---|
-| ![飞书交流群](assets/feishu-group-qr.jpg) | ![马奇诺公众号](assets/wechat-qr-makino.jpg) |
-| **飞书交流群** — 使用问题、Bug 反馈、功能建议 | **公众号「马奇诺」** — AI/Data/PKM 实践，后台留言也可以反馈 |
+<img src="assets/wechat-qr-makino.jpg" alt="公众号 马奇诺" width="200">
 
 ## Author
 

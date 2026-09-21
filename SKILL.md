@@ -2,8 +2,8 @@
 name: makino-data-slides
 invocation: user
 description: "Data Slides — Turn Excel/data analysis into investor-grade HTML slide cards with narrative. ECharts + static cards, Playwright screenshot."
-version: "5.2"
-last_updated: "2026-04-06"
+version: "5.2.1"
+last_updated: "2026-09-21"
 ---
 
 # Data Slides — Data tells the story
@@ -17,12 +17,12 @@ NOT a chart tool. NOT a presentation tool. This is: **Excel data → analysis co
 
 | Need | Use this? | Use instead |
 |------|-----------|-------------|
-| Single chart (line/bar/pie) | No | `/chart` |
-| Article → navigable slide deck | No | `/article-to-slides` |
-| Cover image for article | No | `/cover-gen` |
+| Single chart (line/bar/pie) | No | Any charting library |
+| Article → navigable slide deck | No | [`/content-to-html`](https://github.com/makinotes/makino-content-to-html) |
+| Cover image for article | No | An image generator |
 | **Data analysis → multi-slide cards with narrative, embedded in articles** | **Yes** | — |
 
-The key difference from `/chart`: every card here has a **takeaway** (an opinion/conclusion), not just a visualization. It's "chart + judgment" as a unit.
+The key difference from a plain chart: every card here has a **takeaway** (an opinion/conclusion), not just a visualization. It's "chart + judgment" as a unit.
 
 ## Input
 
