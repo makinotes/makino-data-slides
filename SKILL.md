@@ -2,8 +2,8 @@
 name: makino-data-slides
 invocation: user
 description: "Data Slides — Turn Excel/data analysis into investor-grade HTML slide cards with narrative. ECharts + static cards, Playwright screenshot."
-version: "5.2.1"
-last_updated: "2026-09-21"
+version: "5.2.2"
+last_updated: "2026-09-25"
 ---
 
 # Data Slides — Data tells the story
@@ -87,7 +87,7 @@ Total: 1080×720px fixed.
 
 ```css
 /* 典型 body 高度计算 */
-.body { height: 570px; display: flex; flex-direction: column; justify-content: space-between; }
+.body { height: 596px; display: flex; flex-direction: column; justify-content: space-between; }
 /* chart 吃剩余 */
 #chart { flex: 1; width: 100%; }
 /* 固定元素不缩 */
@@ -249,11 +249,11 @@ graphic: [
 curl -s https://raw.githubusercontent.com/makinotes/makino-data-slides/master/SKILL.md | head -6
 ```
 
-Extract `version:` from remote, compare with local `5.2`.
+Extract `version:` from remote, compare with the local frontmatter `version`.
 If remote > local, show before proceeding:
 
 ```
-[UPDATE] makino-data-slides v{remote} available (you have v5.1).
+[UPDATE] makino-data-slides v{remote} available (you have v{local}).
 Update now? Run: cd ~/.claude/skills/makino-data-slides && git pull
 ```
 
